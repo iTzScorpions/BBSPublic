@@ -3,8 +3,8 @@ import sys
 import threading
   
 
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)                                      # creates the server socket to which the clients connect
-server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)                                    # sets some socket options
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  
+server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  
   
   
 if len(sys.argv) != 3:                                                                          # checks whether sufficient arguments have been provided
@@ -58,7 +58,7 @@ def broadcast(message, connection, addr):                                       
             try:  
                 clients.send(message)                                                           # tries to send the message
             except:                                                                             # if sending did not succeed
-                remove(clients, addr)                                                           # removes the connection
+                remove(clients, addr)                                                                 # removes the connection
   
 def remove(connection, addr):                                                                   # removes the connection from the list and closes the connection
     if connection in list_of_clients:  
