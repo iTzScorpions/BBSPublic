@@ -1,0 +1,7 @@
+{
+    "python.pythonPath": "c:\\Users\\louis\\AppData\\Roaming\\Python\\Python39\\Scripts\\pylint.exe",
+    "python.linting.pylintArgs": [
+        "--extension-pkg-whitelist=PyQt5,otherPkg"
+    ],
+    "python.linting.enabled": false
+}
