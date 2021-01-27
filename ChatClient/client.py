@@ -39,16 +39,14 @@ def receiveMessage(progress_callback):                                          
     global connected
     global client
     while connected:                                                                        # runs as long as the server is connected
-        
         try:                                                                                # try/except: the code in the try block always gets executed. 
                                                                                             # If an exception is raised in the try block, it immediately jumps to the except block and the code in it gets executed
             
             recMessage = client.recv(2048)                                                  # wait for a message from the server and store it in a variable
-                                                                                            # throws an error if the server closes the connection                 
-
+                                                                                            # throws an error if the server closes the connection
             recMessage = recMessage.decode('utf-8')                                         # decodes the received byte array to a string using the utf-8 standard
-
-            progress_callback.emit(recMessage)                                              # calls an update with the received message on the QThreadpool
+            if (recMessage != ''):                                                          # if the received message is not empty
+                progress_callback.emit(recMessage)                                          # calls an update with the received message on the QThreadpool
         except:
             connected = False                                                               # update the connected variable
             updateControls()                                                                # update the ui-controls
@@ -154,8 +152,8 @@ def stopClient():                                                               
     if not connected:                                                                       # if the client isn't connected return
         return
     client.close()                                                                          # closes the connection to the server
-    updateControls()                                                                        # updates the ui-controls
-    updateHistory(f"You disconnected from {addressBox.text()}:{portBox.text()}")            # update the MessageHistory with a disconnect message
+    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)                              # reinitialize the socket
+    
 
 def startClient(address, port):                                                             # starts the client
     global client
@@ -168,7 +166,8 @@ def startClient(address, port):                                                 
         connected = True                                                                    # update connected status
         updateHistory(f"Connected to {addressBox.text()}:{portBox.text()}")                 # update the MessageHistory with a connect message 
         sendMessage(f"nick {nickBox.text()}")                                               # send a message to the server containing the nickname
-    except:
+    except Exception as e:
+        print (e)
         updateHistory(f"Coludn't connect to {addressBox.text()}:{portBox.text()}")          # update the MessageHistory with a disconnect message
         connected = False                                                                   # update connected status
         updateControls()                                                                    # update the ui-elements

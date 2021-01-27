@@ -1,29 +1,26 @@
+from pylint import *
 from PyQt5.QtCore import *
 from PyQt5 import QtWidgets, uic
 from events import Events
 import traceback, sys
 
-
-class WorkerSignals(QObject):
-    message = pyqtSignal(str)
-
+class WorkerSignals(QObject):                                               # container for multiple worker signals, only one is used here
+    message = pyqtSignal(str)                                               # the signal to send when a message is received
 
 class Worker(QRunnable):
 
-    def __init__(self, fn, *args, **kwargs):
+    def __init__(self, fn, *args, **kwargs):                                # __init__ medthod gets called on creation of this class
         super(Worker, self).__init__()
 
-        # Store constructor arguments (re-used for processing)
-        self.fn = fn
+        self.fn = fn                                                        # Store constructor arguments (re-used for processing)
         self.args = args
         self.kwargs = kwargs
         self.signals = WorkerSignals()
 
-        # Add the callback to our kwargs
-        self.kwargs['progress_callback'] = self.signals.message
+        self.kwargs['progress_callback'] = self.signals.message             # Add the callback to our kwargs
 
     @pyqtSlot()
-    def run(self):
+    def run(self):                                                          # run the given Function fn
         try:
             result = self.fn(*self.args, **self.kwargs)
         except:
