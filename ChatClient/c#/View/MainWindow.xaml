@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:chatClient"
         xmlns:viewModel="clr-namespace:chatClient.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="300" MinHeight="450" MinWidth="300">
+        Title="Message Client" Height="450" Width="300" MinHeight="450" MinWidth="300">
     <Window.Resources>
 
         <viewModel:CommandParamConverter x:Key="commandParamConverter" />

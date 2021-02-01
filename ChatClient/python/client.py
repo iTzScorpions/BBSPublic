@@ -52,7 +52,7 @@ def receiveMessage(progress_callback):                                          
             updateControls()                                                                # update the ui-controls
             server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)                      # re-initializes the socket to prepare it for a new connection
 
-    progress_callback.emit(f"You disconnected from {addressBox.text()}:{portBox.text()}")   # update the QThreadpool with a disconnect message
+    progress_callback.emit(f"You disconnected from {addressBox.text()}:{portBox.text()}")   # update the Worker with a disconnect message
 
 def sendMessage(message):                                                                   # sends the given string as a byte array to the server
     global client
@@ -166,8 +166,7 @@ def startClient(address, port):                                                 
         connected = True                                                                    # update connected status
         updateHistory(f"Connected to {addressBox.text()}:{portBox.text()}")                 # update the MessageHistory with a connect message 
         sendMessage(f"nick {nickBox.text()}")                                               # send a message to the server containing the nickname
-    except Exception as e:
-        print (e)
+    except:
         updateHistory(f"Coludn't connect to {addressBox.text()}:{portBox.text()}")          # update the MessageHistory with a disconnect message
         connected = False                                                                   # update connected status
         updateControls()                                                                    # update the ui-elements
