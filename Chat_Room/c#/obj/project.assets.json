@@ -13,18 +13,18 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\git\\BBSPublic\\ChatClient\\c#\\chatClient.csproj",
+      "projectUniqueName": "C:\\git\\BBSPublic\\Chat_Room\\c#\\chatClient.csproj",
       "projectName": "chatClient",
-      "projectPath": "C:\\git\\BBSPublic\\ChatClient\\c#\\chatClient.csproj",
+      "projectPath": "C:\\git\\BBSPublic\\Chat_Room\\c#\\chatClient.csproj",
       "packagesPath": "C:\\Users\\louis\\.nuget\\packages\\",
-      "outputPath": "C:\\git\\BBSPublic\\ChatClient\\c#\\obj\\",
+      "outputPath": "C:\\git\\BBSPublic\\Chat_Room\\c#\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\louis\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0-windows7.0"
+        "net5.0-windows"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
