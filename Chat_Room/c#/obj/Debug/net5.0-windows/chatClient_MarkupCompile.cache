@@ -4,12 +4,12 @@
 winexe
 C#
 .cs
-c:\git\BBSPublic\ChatClient\c#\obj\Debug\net5.0-windows\
+c:\git\BBSPublic\Chat_Room\c#\obj\Debug\net5.0-windows\
 chatClient
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-c:\git\BBSPublic\ChatClient\c#\App.xaml
+c:\git\BBSPublic\Chat_Room\c#\App.xaml
 1871162140
 
 10-1668967735
