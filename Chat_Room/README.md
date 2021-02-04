@@ -11,6 +11,11 @@ You need to be able to run python scripts and be able to build and run C# progra
 - [python](https://www.python.org)
 - [dotnet](https://dotnet.microsoft.com)
 
+You also need some python packages:
+
+- [PyQt5](https://pypi.org/project/PyQt5/)
+- [Events](https://pypi.org/project/Events/)
+
 ## How to use
 
 #### Start the Programs
